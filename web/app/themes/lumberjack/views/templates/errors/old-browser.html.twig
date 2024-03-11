@@ -1,0 +1,53 @@
+{% extends "layout.html.twig" %}
+
+{% block stylesheet %}
+    <link rel="stylesheet" href="{{ mix('styles/old-browser.css')  }}"/>
+{% endblock %}
+
+
+{% block content %}
+    <div class="old-browser">
+
+        <a href="{{ site.url }}" class="old-browser__logo">
+            <img src="{{ mix('images/logo-rd-technology.svg')  }}" alt="{{ site.title }}"/>
+        </a>
+
+        <section class="old-brower-content">
+            <div class="container">
+
+                <div class="w-old-browser">
+                    <a href="{{ site.url }}" class="old-browser__close"></a>
+
+                    <div class="old-browser__head">
+                        <h2 class="h2 title">{{ lang.title }}</h2>
+                        <p class="desc">{{ lang.desc }}</p>
+                    </div>
+
+                    <ul>
+                        {% for b in browers %}
+                            <div class="cart">
+                                <div class="cart__row">
+                                    <div class="cart__img">
+                                        <img class="" src="{{ b.img }}" alt="{{ b.title }}"/>
+                                    </div>
+                                    <div class="cart__txt">
+                                        <div class="headline txt-secondary"> {{ pll__('navigateur') }}</div>
+                                        <h2 class="title h5">{{ b.title }}</h2>
+                                    </div>
+
+                                    <div class="cart__tools">
+                                        <span class="btn btn--primary">{{ pll__('Obtenir') }}</span>
+                                    </div>
+
+                                    <a href="{{ b.link }}" class="full-link" target="_blank"></a>
+
+                                </div>
+                            </div>
+                        {% endfor %}
+                    </ul>
+                </div>
+            </div>
+        </section>
+    </div>
+
+{% endblock %}

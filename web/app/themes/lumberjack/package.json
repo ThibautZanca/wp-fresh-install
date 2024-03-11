@@ -1,0 +1,42 @@
+{
+    "private": true,
+    "scripts": {
+        "watch": "mix watch",
+        "watch-poll": "mix watch -- --watch-options-poll=1000",
+        "hot": "mix watch --hot",
+        "build:dev": "npm run build:development",
+        "build:development": "mix",
+        "build:prod": "npm run build:production",
+        "build:production": "mix --production"
+    },
+    "author": "Adeliom",
+    "license": "ISC",
+    "dependencies": {
+        "aos": "^2.3.4",
+        "cross-env": "^7.0.0",
+        "dauphine": "https://github.com/agence-adeliom/dauphine-scss.git",
+        "dauphine-js": "https://github.com/agence-adeliom/dauphine-js.git",
+        "fantasticon": "https://github.com/agence-adeliom/fantasticon",
+        "figmadeliom": "https://github.com/agence-adeliom/figmadeliom",
+        "dotenv": "^8.2.0",
+        "glob": "^7.1.6",
+        "laravel-mix": "^6.0.18",
+        "object-fit-images": "^3.2.4",
+        "path": "^0.12.7",
+        "vanilla-lazyload": "^16.1.0"
+    },
+    "browserslist": [
+        ">0.25%",
+        "not ie 11",
+        "not op_mini all"
+    ],
+    "devDependencies": {
+        "browser-sync": "^2.26.7",
+        "browser-sync-webpack-plugin": "^2.0.1",
+        "postcss": "^8.1",
+        "resolve-url-loader": "^3.1.3",
+        "sass": "^1.39.0",
+        "sass-loader": "8.*",
+        "vue-template-compiler": "^2.6.11"
+    }
+}

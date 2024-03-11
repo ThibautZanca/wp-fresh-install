@@ -1,0 +1,128 @@
+.flex-text-image {
+    &.on-dark{
+        background-color: $primary-black;
+    }
+    .inner {
+        display: flex;
+        flex-direction: column;
+        @include breakpoint(md) {
+            flex-direction: row;
+            align-items: center;
+        }
+
+        &__text,
+        &__img {
+            position: relative;
+            width: 100%;
+        }
+
+        &__img {
+            @include breakpoint-max(md) {
+                margin-bottom: rem(20);
+            }
+            &.portrait {
+                text-align: center;
+            }
+            .w-img{
+                @include img-homothetic(xs 63% sm 57% md 85% lg 80% xlg 75%);
+            }
+        }
+
+        &--top,
+        &--bottom {
+            @include breakpoint(md) {
+                flex-direction: column;
+            }
+            .inner__text,
+            .inner__img{
+                text-align: center;
+                max-width: rem(830);
+                width: 100%;
+                padding: 0 rem(24);
+            }
+            .w-img{
+                @include img-homothetic(xs 63% sm 57% md 75% lg 70% xlg 65%);
+            }
+        }
+
+        &--left,
+        &--right{
+            .inner__text,
+            .inner__img {
+                @include breakpoint(md) {
+                    width: 50%;
+                }
+            }
+        }
+
+        &--left {
+            flex-direction: column-reverse;
+            @include breakpoint(md) {
+                flex-direction: row-reverse;
+            }
+            .inner__text {
+                @include breakpoint(md) {
+                    padding-left: rem(24);
+                    margin-left: auto;
+                }
+                @include breakpoint(lg) {
+                    padding-left: rem(60);
+                }
+            }
+
+            .inner__img {
+                @include breakpoint(md) {
+                    padding-right: rem(24);
+                }
+                @include breakpoint(lg) {
+                    padding-right: rem(60);
+                }
+            }
+        }
+
+        &--right{
+            @include breakpoint-max(md) {
+                flex-direction: column-reverse;
+            }
+            .inner__text {
+                @include breakpoint(md) {
+                    padding-right: rem(24);
+                }
+                @include breakpoint(lg) {
+                    padding-right: rem(60);
+                }
+            }
+            .inner__img{
+                @include breakpoint(md) {
+                    padding-left: rem(24);
+                }
+                @include breakpoint(lg) {
+                    padding-left: rem(60);
+                }
+            }
+        }
+
+        &--top {
+            flex-direction: column-reverse;
+            .inner__text{
+                margin-top: rem(30);
+            }
+        }
+
+        &--bottom{
+            .inner__text{
+                margin-bottom: rem(30);
+            }
+        }
+
+        &--top,
+        &--bottom,
+        &--left,
+        &--right {
+            .inner__img .w-img.portrait {
+                @include img-homothetic(xs 110%);
+            }
+        }
+
+    }
+}

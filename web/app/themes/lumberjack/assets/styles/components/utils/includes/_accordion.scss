@@ -1,0 +1,52 @@
+[js-accordion-title] {
+    cursor: pointer;
+}
+
+[js-accordion-content] {
+    height: 0;
+    overflow: hidden;
+    transition: height 250ms ease-in-out;
+}
+
+.accordion{
+    border: rem(1) solid $gray-03;
+    border-radius: rem(8);
+    @include transition-default();
+    &:not(.is-open){
+        &:hover{
+            background-color: rgba($secondary-01, 0.1);
+        }
+    }
+    &.is-open{
+        padding-bottom: rem(20);
+        .accordion__question{
+            color: $secondary-01;
+            &:after{
+                transform: rotate(180deg);
+            }
+        }
+    }
+    &__question{
+        position: relative;
+        padding: rem(20) rem(50) rem(20) rem(24);
+        @include transition-color();
+        &:after{
+            position: absolute;
+            top: rem(21);
+            right: rem(20);
+            @include icon($icon-miniarrowbottom, rem(24), $gray-02);
+        }
+    }
+    &__answer{
+        padding: 0 rem(24);
+        .read-more{
+            margin-top: rem(10);
+        }
+    }
+}
+
+.w-accordion{
+    & + .w-accordion{
+        margin-top: rem(16);
+    }
+}

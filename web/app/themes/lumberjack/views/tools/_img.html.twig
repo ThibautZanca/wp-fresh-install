@@ -1,0 +1,103 @@
+{#  Paramètres  #}
+
+{#  class => si la class lazy est spécifiée alors on utilise le lazyload #}
+{#  media => l'objet de l'image qui contient l'ensemble des infos (width, height, sizes...) #}
+{#  src => généralement pour une image statique #}
+{#  alt => pour surcharger la balise alt de l'objet media dans un cas spécifique (concaténation nom produit par exemple) #}
+{#  retina => true / false => on concatène ensuite le format/style d'image avec _2x pour gérer le retina #}
+{#  srcRetina => URL de l'image retina pour une image statique ou un cas particulier où le format/style est différent du classique #}
+{#  lazy => format/style pour l'image de type placeholder/fake, on peut utiliser le lazyload en spécifiant simplement la classe lazy #}
+
+{% set options = {
+    class: "",
+    attribute: "",
+    media: null,
+    picsum: "https://picsum.photos/1920/1080",
+    src: null,
+    size: 'medium_large',
+    sizeRetina: 'large',
+    srcRetina: null,
+    lazy: "thumbnail",
+    alt: "",
+    direction: false,
+    container: ''
+} %}
+
+{# Merge entre les options par défaut et la variable obj passée en paramètre #}
+{% if obj is defined and obj %}
+    {% set options = options|merge(obj) %}
+{% endif %}
+
+{# Check si une src est renseignée sinon image picsum par défaut #}
+{% set imgPath = options.src ? options.src : options.picsum %}
+
+{# Check si une src retina est renseignée #}
+{% set imgPathRetina = options.srcRetina ? options.srcRetina : '' %}
+
+{# Check si l'objet media est défini #}
+{% if options.media %}
+
+    {# On met à jour la source de l'image selon le format/style renseigné #}
+    {% set imgPath = options.media['sizes'][options.size] %}
+
+    {# Si l'option retina est à true alors on concaténe le nom du format/style en ajoutant _2x #}
+    {% if options.retina %}
+        {% set imgPathRetina = options.media['sizes'][options.sizeRetina] %}
+    {% endif %}
+
+{% endif %}
+
+{# Par défaut, pas de lazyload ni d'image placeholder/fake #}
+{% set imgPathLazy = '' %}
+{% set lazy = false %}
+
+{# Si des classes CSS sont renseignées #}
+{% if options.class %}
+
+    {# On test si la classe lazy est renseignée #}
+    {% set lazy = 'lazy' in options.class %}
+
+    {# Si la classe lazy, si l'objet media existe et si on le lazyload est activé on met à jour la src du placeholder/fake #}
+    {% if lazy and options.media and options.lazy %}
+        {% set imgPathLazy = options.media['sizes'][options.lazy] %}
+    {% endif %}
+
+{% endif %}
+
+{# Si la direction est définie #}
+{% if options.direction %}
+
+    {# On test l'orientation de l'image pour appliquer une classe en fonction du résultat #}
+    {% if options.media.width > options.media.height %}
+        {% set img_direction = 'landscape' %}
+    {% elseif img_width <= img_height %}
+        {% set img_direction = 'portrait' %}
+    {% endif %}
+
+{% endif %}
+
+{% if options.container %}
+<div class="{{ options.container }} img-container {{ img_direction }}"> {% endif %}
+
+    <img {{ options.attribute }} class="{{ options.class }}"
+
+            {# Dans le cas du lazyload on utilise l'attribut data-srcset #}
+            {% if not imgPathRetina and lazy %}data-srcset="{{ imgPath }}"{% endif %}
+
+            {# Pour le retina on spécifie 1x pour l'image classique et 2x pour le retina #}
+            {% if imgPathRetina and lazy %}data-srcset="{{ imgPath ~ ' 1x , ' ~ imgPathRetina ~ ' 2x' }}"{% endif %}
+
+            {# On utilise le data-src pour la compatibilité IE #}
+            {% if imgPath %}data-src="{{ imgPath }}"{% endif %}
+
+            {# Dans le cas classique sans lazyload on utilise la balise src #}
+            {% if not lazy %}src="{{ imgPath }}"{% endif %}
+
+            {# Pour le lazyload, si l'on renseigne une image placeholder/fake on l'affiche temporairement dans la balise src #}
+            {% if imgPathLazy %}src="{{ imgPathLazy }}"{% endif %}
+
+            {# Par défaut on utilise l'option alt sinon l'attribut alt de l'objet media #}
+                                 alt="{% if options.alt %}{{ options.alt }}{% elseif options.media and options.media.alt %}{{ options.media.alt }}{% endif %}"
+                                 title="{% if options.media %}{{ options.media.title }}{% endif %}">
+
+    {% if options.container %} </div> {% endif %}

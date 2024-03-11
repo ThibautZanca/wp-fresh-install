@@ -1,0 +1,26 @@
+<footer class="footer on-dark">
+    <div class="container">
+        <div class="footer-top">
+            FOOTER TOP
+        </div>
+        <div class="footer-bottom">
+            <ul class="footer-bottom__links">
+                <li class="footer-bottom__link">
+                    <a href="{{ fn('get_permalink', link.legals.ID) }}" class="link">Mentions
+                        légales {{ link.legals.post_title }}</a>
+                </li>
+                <li class="footer__link">
+                    <a href="{{ fn('get_permalink', link.rgpd.ID) }}" class="link">Politique de
+                        confidentialité{{ link.rgpd.post_title }}</a>
+                </li>
+            </ul>
+            <span class="copyright copyright--adeliom">
+                <a href="https://adeliom.com" rel="nofollow" target="_blank">
+                    Conception
+                    <img src="{{ mix('/images/logo_adeliom.svg') }}" alt="logo Adeliom"/> {{ __('Adeliom Agency', '') }}</a>
+            </span>
+            <span
+                class="copyright copyright--society">{{ __('Tous droits réservés XXX', '') }} {{ "now"|date("Y") }}</span>
+        </div>
+    </div>
+</footer>

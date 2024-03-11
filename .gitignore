@@ -1,0 +1,36 @@
+# Application
+web/app/plugins/*
+!web/app/plugins/.gitkeep
+web/app/mu-plugins/*/
+!web/app/mu-plugins/.gitkeep
+web/app/languages/*
+!web/app/languages/.gitkeep
+web/app/upgrade
+web/app/uploads/*
+!web/app/uploads/.gitkeep
+
+web/app/_sessions/*
+!web/app/_sessions/.gitkeep
+
+# WordPress
+web/wp
+
+# Logs
+*.log
+
+# Dotenv
+!.env
+.env.*
+!.env.dist
+!.env.example
+
+# Composer
+/vendor
+
+# WP-CLI
+wp-cli.local.yml
+
+.composer
+.idea
+
+_mutagen/config.yml.lock

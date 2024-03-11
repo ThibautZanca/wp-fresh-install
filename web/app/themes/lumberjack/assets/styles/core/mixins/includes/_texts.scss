@@ -1,0 +1,15 @@
+@mixin p{
+  @include font-size(rem(14), rem(22));
+}
+
+@mixin p--small{
+  @include font-size(rem(12), rem(19));
+}
+
+@mixin p--medium{
+  @include font-size(rem(20), rem(32));
+}
+
+@mixin p--large{
+  @include font-size(rem(24), rem(34));
+}

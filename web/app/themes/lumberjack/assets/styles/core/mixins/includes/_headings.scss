@@ -1,0 +1,46 @@
+%headings-default {
+    font-family: $font-primary;
+    font-weight: 800;
+    color: $primary-black;
+}
+%h1 {
+    @extend %headings-default;
+    @include text(30, 41);
+    @include breakpoint(md) {
+        @include text(36, 49);
+    }
+    @include breakpoint(lg) {
+        @include text(40, 48);
+    }
+}
+%h2 {
+    @extend %headings-default;
+    @include text(26, 31);
+    @include breakpoint(md) {
+        @include text(32, 38);
+    }
+    @include breakpoint(lg) {
+        @include text(37, 44);
+    }
+}
+%h3 {
+    @extend %headings-default;
+    @include text(24, 33);
+    @include breakpoint(md) {
+        @include text(28, 38);
+    }
+    @include breakpoint(lg) {
+        @include text(32, 42);
+    }
+}
+%h4 {
+    @extend %headings-default;
+    @include text(22, 30);
+    @include breakpoint(lg) {
+        @include text(24, 33);
+    }
+}
+%h5 {
+    @extend %headings-default;
+    @include text(20, 27);
+}

@@ -1,0 +1,8 @@
+a:not(.btn),
+.link{
+    @extend %a;
+}
+
+.read-more{
+    @extend %readmore;
+}

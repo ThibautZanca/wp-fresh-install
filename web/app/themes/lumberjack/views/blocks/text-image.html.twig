@@ -1,0 +1,41 @@
+{% import "./tools/_link.html.twig" as link %}
+
+{% set position = 'inner--' ~ fields.img_position %}
+
+<section class="w-flex flex-text-image {{ fields.bg }}">
+
+    <div class="container">
+            <div class="inner {{ position }}">
+
+                <div class="inner__text wysiwyg">
+
+                    {% if fields.title %}
+                        <h2 class="title h2">
+                            {{ fields.title }}
+                        </h2>
+                    {% endif %}
+
+                    {{ fields.text }}
+
+                    {% set btn = fields.btn_link %}
+
+                    {% if btn %}
+                        {{ link.link(btn.url, btn.title ? btn.title : __('Lire plus') , 'btn btn--primary', btn_link.target) }}
+                    {% endif %}
+
+                </div>
+
+                <div class="inner__img">
+                    {% include './tools/_img.html.twig' with {'obj': {
+                        'class': 'img-full',
+                        'media': fields.img,
+                        'direction': true,
+                        'container': 'w-img',
+                    }
+                    } %}
+                </div>
+
+            </div>
+        </div>
+
+</section>

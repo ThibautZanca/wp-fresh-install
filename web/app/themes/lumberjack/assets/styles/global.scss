@@ -1,0 +1,42 @@
+/* ==========================================================================
+	GLOBAL VARIABLES
+/* ========================================================================== */
+@import 'core/helpers/config';
+
+
+/* ==========================================================================
+	LIB - PACKAGE
+/* ========================================================================== */
+
+@import '~dauphine/dauphine';
+@import '~dauphine/starter';
+@import '~dauphine/framework';
+
+
+/* ==========================================================================
+	CORE
+/* ========================================================================== */
+@import './core/mixins/mixins';
+@import './core/definitions/definitions';
+
+/* ==========================================================================
+	COMPONENTS
+/* ========================================================================== */
+
+//form
+@import './components/forms/forms';
+
+//navigations
+@import './components/navigations/navigations';
+
+//blocks
+@import './components/blocks/blocks';
+
+//sections
+@import './components/sections/sections';
+
+//cards
+@import './components/cards/cards';
+
+//utils
+@import './components/utils/utils';

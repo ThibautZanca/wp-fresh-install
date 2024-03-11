@@ -1,0 +1,40 @@
+%primary-list {
+    position: relative;
+    padding-left: rem(24);
+    @include p;
+    & + li {
+        margin-top: rem(25);
+    }
+    & + ul {
+        margin-top: rem(16);
+    }
+    &:before {
+        content:"";
+        display: block;
+        background: $secondary-01;
+        height: rem(8);
+        width: rem(8);
+        position: absolute;
+        top: rem(6);
+        left: 0;
+        border-radius:rem(5);
+    }
+}
+
+%number-list {
+    position: relative;
+    padding-left: rem(30);
+    counter-increment: li;
+    @include p;
+    & + li {
+        margin-top: rem(15);
+    }
+    &:before {
+        content: counter(li, decimal-leading-zero) ". ";
+        position: absolute;
+        top: 0;
+        left: 0;
+        color: $secondary-01;
+        font-weight: bold;
+    }
+}

@@ -1,0 +1,71 @@
+@mixin btn-hover-default($color: $secondary-01){
+    &:after{
+        content: '';
+        position: absolute;
+        z-index: -1;
+        bottom: 0;
+        right: 0;
+        left: 0;
+        height: 0;
+        background-color: $color;
+        @include transition(250ms, height);
+    }
+    @include breakpoint(md){
+        &:hover{
+            &:after{
+                height: 100%;
+            }
+        }
+    }
+}
+
+%btn{
+    position: relative;
+    z-index: 1;
+    display: inline-block;
+    text-decoration: none;
+    cursor: pointer;
+    font-size: rem(16);
+    height: rem(48);
+    line-height: rem(48);
+    padding: 0 rem(20);
+    outline: none;
+    border: 0;
+    text-align: center;
+    white-space: nowrap;
+    @include transition-default();
+}
+
+%btn--primary{
+    background-color: $secondary-01;
+    color: $white;
+    @include btn-hover-default();
+}
+
+%btn--small{
+    height: rem(34);
+    line-height: rem(34);
+    padding: 0 rem(15);
+}
+
+%btn--outline{
+    border: rem(1) solid $gray-02;
+    color: $primary-color;
+    line-height: rem(46);
+    background-color: transparent;
+    @include btn-hover-default();
+    @include transition(250ms);
+    @include breakpoint(md){
+        &:hover{
+            border: rem(1) solid $secondary-02;
+            color: $white;
+        }
+    }
+}
+
+%btn--disabled{
+    background-color: $gray-03;
+    color: $gray-01;
+    cursor: initial;
+    pointer-events: none;
+}

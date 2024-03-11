@@ -1,0 +1,85 @@
+@import "../fonts/font-montserrat";
+@import "../fonts/font-playfair";
+
+/* ===================
+	    Colors (Same variables as Figma)
+/* ===================*/
+
+$primary-color      : #252428;
+$primary-black      : $primary-color;
+$secondary-01       : #E62A4D;
+$secondary-02       : #2A3DE6;
+$secondary-03       : #2AE6C4;
+$text-color         : $primary-color;
+
+$white              : #fff;
+$black              : #000;
+
+$gray-01            : #616B75;
+$gray-02            : #A6B0B9;
+$gray-03            : #D3DAE0;
+$gray-04            : #E1E7ED;
+
+$overlay-color      : #bbb;
+$line-color         : #bbb;
+
+$success-color      : #2CB753;
+$danger-color       : #FBAA30;
+$warning-color      : #ED4B46;
+
+$gradients-primary  : linear-gradient(135deg, #E62A4D 0%, #2A3DE6 100%);
+$gradients-secondary: linear-gradient(135deg, #2AE6C4 0%, #2A3DE6 100%);
+
+$box-shadow         : (1px, 1px, 1px, black);
+$box-shadow-little  : 0px 10px 20px -8px rgba(37, 36, 40, 0.25);
+$box-shadow-medium  : 0px 18px 30px -12px rgba(37, 36, 40, 0.25);
+$box-shadow-big     : 0px 28px 46px -16px rgba(37, 36, 40, 0.25);
+
+
+
+/* ===================
+       Fonts
+/* ===================*/
+$font-primary : 'Monsterrat', -apple-system, BlinkMacSystemFont, Segoe UI, Helvetica Neue, Arial, sans-serif;
+$font-secondary : 'Playfair Display', -apple-system, BlinkMacSystemFont, Segoe UI, Helvetica Neue, Arial, sans-serif;
+
+
+/* ===================
+    Config
+/* ===================*/
+$debug-rem : true;
+
+/* ===================
+    Dauphine var default
+/* ===================*/
+$columns: false;
+$sizing: false;
+$grid: false;
+$order: false;
+$direction: false;
+$display: false;
+$spacing: false;
+
+
+//generate classes colors & bg (.color-secondary-01, .bg-secondary-01)
+$colors: (
+    secondary-01: $secondary-01,
+    secondary-02: $secondary-02,
+);
+
+/* ===================
+    FlexContent
+/* ===================*/
+$paddings: (
+  xs : 40,
+  sm : 60,
+  lg : 80
+);
+
+/* ===================
+    Animations
+/* ===================*/
+$animTranslation : 60px;
+$translateTop : translate3d(0, $animTranslation, 0);
+$animCurbe : cubic-bezier(0, 0, 0.58, 1);
+$animTime : 400ms;

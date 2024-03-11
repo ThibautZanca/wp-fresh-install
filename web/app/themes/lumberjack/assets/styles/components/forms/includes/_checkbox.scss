@@ -1,0 +1,51 @@
+input[type="checkbox"]{
+    position: absolute; // take it out of document flow
+    opacity: 0; // hide it
+    z-index: -100;
+    width: 0;
+    pointer-events: none;
+    &.error {
+        & + label:before {
+            border-color: $secondary-01;
+        }
+    }
+    & + label {
+        position: relative;
+        cursor: pointer;
+        font-size: rem(16);
+        &:before {
+            content: '';
+            display: inline-block;
+            vertical-align: text-top;
+            width: rem(22);
+            height: rem(22);
+            margin-right: rem(15);
+            background: white;
+            border: rem(1) solid transparent;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+            @include transition(border, 300ms, ease);
+        }
+        &:hover {
+            &:before {
+                border: rem(1) solid $secondary-02;
+            }
+        }
+    }
+
+    // Box checked
+    &:checked + label:before {
+        background: $secondary-01;
+    }
+
+    &:checked + label {
+        &:before {
+            border-color: transparent;
+        }
+        &:after {
+            /*@include icon($icon-icon-check, $white);*/
+            position: absolute;
+            left: rem(-0.5);
+            top: 0;
+        }
+    }
+}

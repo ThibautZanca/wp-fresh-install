@@ -1,0 +1,34 @@
+@import '../../core/helpers/inc';
+
+.page-404 {
+    &__header {
+        text-align: center;
+        margin: rem(40) auto rem(24);
+        max-width: rem(660);
+
+        .btn {
+            margin-top: rem(24);
+        }
+    }
+    &__content {
+        @include flex-row;
+
+        .headline {
+            margin-bottom: rem(16);
+        }
+    }
+
+    &__column {
+        @include col(12);
+
+        @include breakpoint-max(md) {
+            & + .page-404__column {
+                margin-top: rem(32);
+            }
+        }
+
+        @include breakpoint(md) {
+            @include col(6);
+        }
+    }
+}

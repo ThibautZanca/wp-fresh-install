@@ -1,0 +1,31 @@
+{% extends "layout.html.twig" %}
+
+{% block content %}
+
+    <div class="debug">
+        <span class="strong">views/templates/articles.html.twig</span>
+
+        <span class="strong">objet page:</span>
+        {{ page.title }} <i>//page.title</i>
+    </div>
+
+
+    <div class="debug">
+
+        <form>
+            <div class="form-group">
+                <label>Filtrer par thématique</label>
+            <select class="form-control" type="text" name="c">
+                {% for category in categories %}
+                    <option value="{{ category.id }}">{{ category.name }}</option>
+                {% endfor %}
+            </select>
+            </div>
+        </form>
+
+    </div>
+
+    {% include "partials/lister/articles.html.twig" with articles %}
+
+
+{% endblock %}

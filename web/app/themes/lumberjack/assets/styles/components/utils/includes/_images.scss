@@ -1,0 +1,50 @@
+.background-img{
+    @extend %bg-center;
+}
+
+img:not([src]):not([srcset]) {
+    visibility: hidden;
+}
+
+/*Fixes Firefox anomaly during image load*/
+@-moz-document url-prefix() {
+    img:-moz-loading {
+        visibility: hidden;
+    }
+}
+
+img.initial,
+img.loaded,
+img.loading,
+img.error {
+    opacity: 1;
+}
+
+.w-img{
+    position: relative;
+    overflow: hidden;
+    &--full{
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+    }
+}
+
+
+.animated-background{
+    animation-duration: 1s;
+    animation-fill-mode: forwards;
+    animation-iteration-count: infinite;
+    animation-name: placeHolderShimmer;
+    animation-timing-function: linear;
+    background: #eeeeee;
+    background: -webkit-gradient(linear, left top, right top, color-stop(8%, #eeeeee), color-stop(18%, #dddddd), color-stop(33%, #eeeeee));
+    background: -webkit-linear-gradient(left, #eeeeee 8%, #dddddd 18%, #eeeeee 33%);
+    background: linear-gradient(to right, #eeeeee 8%,#dddddd 18%,#eeeeee 33%);
+    background-size: 800px 104px;
+    height: 40px;
+    width: 100%;
+    position: relative;
+}

@@ -1,0 +1,149 @@
+@import "../../core/helpers/inc";
+@import "../../components/forms/forms";
+
+header {
+	padding-top: rem(48);
+	padding-bottom: rem(48);
+}
+section {
+	@include defaultPadding();
+}
+
+.col-left,
+.col-right {
+	@include flex-col(12);
+	@include breakpoint-min(md) {
+		@include flex-col(6);
+	}
+}
+
+.stylesheet {
+
+	&__header {
+
+	}
+
+	&__colors {
+		&__list {
+			display: flex;
+			flex-direction: row;
+			align-items: flex-start;
+			justify-content: flex-start;
+			flex-wrap: wrap;
+			li {
+				display: inline-flex;
+				flex-direction: column;
+				align-items: center;
+				justify-content: flex-start;
+				text-align: center;
+				padding: rem(16);
+			}
+			.color-ex {
+				display: block;
+				width: rem(75);
+				height: rem(75);
+				border-radius: 50%;
+				margin-bottom: rem(8);
+				&--primary-black {
+					background: $primary-black;
+				}
+				&--secondary-01 {
+					background: $secondary-01;
+				}
+				&--secondary-02 {
+					background: $secondary-02;
+				}
+				&--gray-01 {
+					background: $gray-01;
+				}
+				&--gray-02 {
+					background: $gray-02;
+				}
+				&--gray-03 {
+					background: $gray-03;
+				}
+				&--gray-04 {
+					background: $gray-04;
+				}
+				&--white {
+					background: $white;
+				}
+				&--black {
+					background: $black;
+				}
+                &--success-color {
+                    background: $success-color;
+                }
+                &--warning-color {
+                    background: $warning-color;
+                }
+                &--danger-color {
+                    background: $danger-color;
+                }
+				//&--gradient-sunny {
+				//	background: $gradient-sunny;
+				//}
+				//&--gradient-picker {
+				//	background: $gradient-picker;
+				//}
+			}
+		}
+	}
+
+	&__shadows {
+		.shadoww {
+			&__w {
+				@include flex-col(4, 12, '48 48');
+			}
+			height: 150px;
+			//border-radius: $radius-card;
+			background: $white;
+			width: 100%;
+			&--little {
+				box-shadow: $box-shadow-little;
+			}
+			&--medium {
+				box-shadow: $box-shadow-medium;
+			}
+			&--big {
+				box-shadow: $box-shadow-big;
+			}
+		}
+	}
+
+	&__headings-buttons {
+		.col-right {
+			flex-direction: column;
+			align-items: flex-start;
+			display: flex;
+			.btn {
+				margin: rem(8) 0;
+			}
+		}
+		p + p {
+			margin-top: rem(16);
+		}
+	}
+
+	&__cards {
+		&__container {
+			@include flex-col(12);
+			@include breakpoint-min(md) {
+				@include flex-col(4);
+			}
+			&--product {
+				@include flex-col(12);
+				@include breakpoint-min(md) {
+					@include flex-col(3);
+				}
+			}
+			&--sport {
+
+			}
+		}
+	}
+
+	&__forms {
+
+	}
+}

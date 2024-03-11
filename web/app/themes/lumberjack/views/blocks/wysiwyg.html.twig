@@ -1,0 +1,20 @@
+{% import "./tools/_link.html.twig" as link %}
+
+<section class="w-flex flex-wysiwyg {{ fields.bg }}">
+
+    <div class="container">
+
+        <div class="wysiwyg">
+            {{ fields.text }}
+
+            {% set btn = fields.btn_link %}
+
+            {% if btn %}
+                {{ link.link(btn.url, btn.title ? btn.title : __('Lire plus') , 'btn btn--primary', btn_link.target) }}
+            {% endif %}
+
+        </div>
+
+    </div>
+
+</section>

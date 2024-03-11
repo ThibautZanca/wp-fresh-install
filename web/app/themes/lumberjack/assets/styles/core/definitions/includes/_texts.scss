@@ -1,0 +1,36 @@
+html{
+    font-family: $font-primary;
+    font-size: rem(14);
+    line-height: rem(18);
+    text-align: left;
+    color: $text-color;
+}
+
+strong{
+    @extend %b;
+}
+
+i, em{
+    @extend %i;
+}
+
+u{
+    @extend %u;
+}
+
+p{
+    @include p;
+}
+
+.p{
+    @include p;
+    &--small{
+        @include p--small;
+    }
+    &--medium{
+        @include p--medium;
+    }
+    &--large{
+        @include p--large;
+    }
+}

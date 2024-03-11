@@ -1,0 +1,17 @@
+{% set lastNews = getLastNews(fields.custom_last_news) %}
+
+<section class="w-flex flex-last-news">
+    <div class="container">
+        {% if fields.title %}
+            <h2 class="h2 title">{{ fields.title }}</h2>
+        {% endif %}
+
+        {% if lastNews %}
+            <div class="news">
+                {% for card in lastNews %}
+                    {% include 'components/cards/card-news.html.twig' with {card: card} %}
+                {% endfor %}
+            </div>
+        {% endif %}
+    </div>
+</section>

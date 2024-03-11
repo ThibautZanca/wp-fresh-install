@@ -1,0 +1,22 @@
+.flex-header {
+    .w-img {
+        @include img-homothetic(xs 50% lg 26% xlg 22%);
+        text-align: center;
+
+        &:after {
+            content: "";
+            @include full();
+            background-color: rgba($black, 0.3);
+        }
+    }
+
+    .w-title {
+        @include center-both();
+        z-index: 2;
+
+        .title {
+            color: $white;
+        }
+    }
+
+}

@@ -1,0 +1,46 @@
+%animation {
+    animation-fill-mode: both;
+    animation-timing-function: ease-in;
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes fadeOut {
+    0% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+    }
+}
+
+/* $animation-hover : Dauphine variable */
+
+@mixin fadeIn($time: $animation-hover){
+    @extend %animation;
+    animation-name: fadeIn;
+    animation-duration: $time;
+}
+
+@mixin fadeOut(){
+    @extend %animation;
+    animation-name: fadeOut;
+    animation-duration: $time;
+}
+
+/* Animation for waiting block as Facebook */
+@keyframes placeHolderShimmer{
+    0%{
+        background-position: rem(-468) 0;
+    }
+    100%{
+        background-position: rem(468) 0;
+    }
+}

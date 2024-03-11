@@ -1,0 +1,177 @@
+/* ==========================================================================
+    IE PAGE
+/* ========================================================================== */
+@import '../../core/helpers/inc';
+
+.old-browser {
+    padding-top: rem(40);
+    padding-bottom: rem(80);
+
+    //logo section
+    &__logo {
+        display: block;
+        margin: 0 auto;
+        text-align: center;
+        max-width: rem(250);
+
+        img {
+            max-width: 100%;
+        }
+    }
+
+    &__close {
+        position: absolute;
+        right: rem(0);
+        top: rem(-80);
+        width: rem(32);
+        height: rem(32);
+        opacity: 0.3;
+        @include transition-default();
+
+        &:hover {
+            opacity: 1;
+        }
+
+        &:before, &:after {
+            position: absolute;
+            left: 15px;
+            content: ' ';
+            height: 33px;
+            width: 2px;
+            background-color: $secondary-01;
+        }
+
+        &:before {
+            transform: rotate(45deg);
+        }
+
+        &:after {
+            transform: rotate(-45deg);
+        }
+
+    }
+
+    //list section basic params
+    .old-brower-content {
+        padding-top: rem(60);
+        @include breakpoint(md) {
+            padding-top: rem(100);
+        }
+
+        .w-old-browser {
+            @include breakpoint(lg) {
+                @include offset(1);
+                @include col(10);
+            }
+        }
+    }
+
+    &__head {
+        margin-bottom: rem(40);
+
+        .title {
+            font-family: $font-secondary;
+            color: $primary-color;
+            font-weight: bold;
+            @include font-size(rem(26), rem(31));
+            @include breakpoint(sm) {
+                @include font-size(rem(30), rem(36));
+            }
+            @include breakpoint(md) {
+                @include font-size(rem(36), rem(43));
+            }
+        }
+
+        .desc {
+            margin-top: rem(10);
+            @include font-size(rem(16), rem(25));
+        }
+    }
+
+    .cart {
+        & + .cart {
+            margin-top: rem(30);
+        }
+
+        &__title {
+            margin-bottom: rem(20);
+            @include breakpoint(sm) {
+                margin-bottom: rem(30);
+            }
+        }
+
+        &__row {
+            position: relative;
+            display: flex;
+            align-items: center;
+            padding-bottom: rem(20);
+            border-bottom: 1px solid $gray-03;
+
+            &:hover {
+                @include breakpoint(md) {
+                    .card__btn {
+                        background: $secondary-02;
+                    }
+                }
+            }
+        }
+
+
+        &__txt {
+            position: relative;
+            z-index: 2;
+            margin-left: rem(20);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+
+            .headline {
+                color: $secondary-01;
+                text-transform: uppercase;
+                letter-spacing: 0.03em;
+                font-weight: bold;
+                margin-bottom: rem(5);
+                @include font-size(rem(14), rem(22));
+
+                @include breakpoint(md) {
+                    @include font-size(rem(16), rem(26));
+                }
+            }
+
+            .browser-title {
+                @include font-size(rem(20), rem(32));
+            }
+        }
+
+        &__img {
+            width: rem(60);
+            position: relative;
+
+            img {
+                z-index: 2;
+                position: relative;
+                width: 100%;
+            }
+        }
+
+        &__tools{
+            margin-left: auto;
+        }
+
+        &__btn {
+            margin-left: auto;
+            @extend %btn;
+            @extend %btn--primary;
+        }
+
+        .full-link {
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: 2;
+            width: 100%;
+            height: 100%;
+        }
+
+    }
+}

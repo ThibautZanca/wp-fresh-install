@@ -1,0 +1,24 @@
+<section class="flex-header">
+    <div class="w-img">
+        {% include './tools/_img.html.twig' with {'obj': {
+            'class': 'img-full',
+            'media': fields.img,
+            'direction': true,
+            'attribute': 'js-parallax',
+            'size' : '1536x1536'
+        }
+        } %}
+
+{#        {% if not is_preview %}#}
+{#            {% include 'navigations/breadcrumb.html.twig' %}#}
+{#        {% endif %}#}
+
+        <div class="w-title">
+            <h1 class="title h1">
+
+                {{ fields.title }}
+            </h1>
+        </div>
+
+    </div>
+</section>

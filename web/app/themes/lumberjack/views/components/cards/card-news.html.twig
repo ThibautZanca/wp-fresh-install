@@ -1,0 +1,17 @@
+
+<article class="card card--news">
+    <div class="card__image">
+        {% include './tools/_img.html.twig' with {'obj': {
+            'class': 'img-full',
+            'direction': true
+        }
+        } %}
+    </div>
+    <div class="card__text">
+        <div class="inner">
+            <h4 class="card__text__title h4">{{card.title}}</h4>
+        </div>
+        <div class="card__text__btn">{{__(" Lire l'article", '') }}</div>
+    </div>
+    <a href="{{ card.link }}" class="full-link"></a>
+</article>

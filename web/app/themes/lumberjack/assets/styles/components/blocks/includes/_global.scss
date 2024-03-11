@@ -1,0 +1,11 @@
+.w-flex {
+    @include padding();
+}
+
+.w-flex--no-top{
+    padding-top: 0;
+}
+
+.w-flex--no-bottom{
+    padding-bottom: 0;
+}

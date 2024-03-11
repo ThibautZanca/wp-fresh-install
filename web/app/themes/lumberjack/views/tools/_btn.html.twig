@@ -1,0 +1,24 @@
+{% if page is defined and page %}
+
+    {% set btn = isLink is defined ? false : true %}
+
+    {% set url = link[page] is defined and link[page] ? link[page]['url'] : "" %}
+
+    {% if not url %}
+        {% set url = function('get_permalink', link[page]) %}
+    {% endif %}
+
+    {% if url and label is defined or attributes and label is defined %}
+        <a href="{{ url }}"
+            {% if attributes is defined %}
+                {% for attribute in attributes %}
+                    {{ attribute }}
+                {% endfor %}
+            {% endif %}
+           class="{% if btn %}btn{% endif %} {{ class is defined ? class : '' }}"
+           target="{{ link[page]['target'] }}">
+            {{ label }}
+        </a>
+    {% endif %}
+
+{% endif %}

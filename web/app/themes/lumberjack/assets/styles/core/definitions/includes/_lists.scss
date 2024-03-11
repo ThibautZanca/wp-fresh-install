@@ -1,0 +1,11 @@
+ul.primary-list {
+  li{
+    @extend %primary-list;
+  }
+}
+
+ol {
+  li{
+    @extend %number-list;
+  }
+}

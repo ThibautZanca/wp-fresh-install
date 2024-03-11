@@ -1,0 +1,43 @@
+name: Deployer PHP - Staging
+
+on:
+  push:
+    branches:
+      - 'releases/**'
+      - '!releases/**-beta'
+
+jobs:
+  build:
+    name: Deploy code to Staging
+    runs-on: self-hosted
+    steps:
+      - uses: webfactory/ssh-agent@v0.5.2
+        with:
+          ssh-private-key: ${{ secrets.PRIVATE_KEY }}
+
+
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Setup PHP
+        uses: shivammathur/setup-php@master
+        with:
+          php-version: "7.4"
+          extensions: bcmath gd snmp
+          tools: composer:v2 deployer
+        env:
+          fail-fast: true
+
+      - name: Get composer cache directory
+        id: composer-cache
+        run: echo "::set-output name=dir::$(composer config cache-files-dir)"
+
+      - name: Cache dependencies
+        uses: actions/cache@v2
+        with:
+          path: ${{ steps.composer-cache.outputs.dir }}
+          key: ${{ runner.os }}-composer-${{ hashFiles('**/composer.lock') }}
+          restore-keys: ${{ runner.os }}-composer-
+      - run: composer install --ignore-platform-reqs --no-scripts
+
+      - run: php vendor/bin/dep deploy staging -v

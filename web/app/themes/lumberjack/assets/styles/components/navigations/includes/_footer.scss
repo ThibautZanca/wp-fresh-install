@@ -1,0 +1,54 @@
+.footer {
+    background-color: $primary-black;
+
+    * {
+        color: $white;
+        @include p--small;
+    }
+
+    a {
+        @include transition-default();
+        @include breakpoint(md) {
+            &:hover {
+                opacity: 0.5;
+                color: inherit;
+            }
+        }
+    }
+
+    .footer-top {
+        padding-top: rem(40);
+        border-bottom: 1px solid $gray-03;
+    }
+
+    .footer-bottom {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: rem(16) 0 rem(46);
+
+        @include breakpoint(md) {
+            flex-direction: row;
+            justify-content: space-between;
+        }
+
+        &__links {
+            display: flex;
+
+            li {
+                & + li {
+                    margin-left: rem(8);
+
+                }
+            }
+        }
+
+        .copyright {
+            &--adeliom {
+                @include breakpoint-max(md) {
+                    margin: rem(8) 0;
+                }
+            }
+        }
+    }
+}

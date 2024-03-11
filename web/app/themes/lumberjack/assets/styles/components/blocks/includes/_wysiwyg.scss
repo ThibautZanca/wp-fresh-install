@@ -1,0 +1,21 @@
+.flex-wysiwyg {
+    &.on-dark{
+        background-color: $primary-black;
+    }
+
+    .wysiwyg {
+        @include flex-col(12,12,false);
+        max-width: rem(800);
+
+        @include breakpoint(sm){
+            @include flex-col(10, 12, false);
+            @include offset(1, 12);
+        }
+
+        @include breakpoint(md){
+            @include flex-col(8, 12, false);
+            @include offset(2, 12);
+        }
+    }
+
+}

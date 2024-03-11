@@ -1,0 +1,120 @@
+/* ===================
+	    Icomoon
+/* ===================*/
+
+@mixin icon($content, $size: rem(24), $color: inherit) {
+    content: $content;
+    font-family: "icons";
+    font-size: $size;
+    color: $color;
+    font-weight: 400;
+}
+
+/* ===================
+	    Image
+/* ===================*/
+
+%background-img{
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+}
+
+@mixin img-full {
+    width: 100%;
+    height: 100%;
+    top: 0;
+    position: absolute;
+    object-fit: cover;
+}
+
+/* ===================
+	    Functions
+/* ===================*/
+
+@function padding($varname) {
+  @return rem(map-get($paddings, $varname));
+};
+
+/* ===================
+	   Padding
+/* ===================*/
+@mixin padding(){
+  padding: padding(xs) 0;
+  @include breakpoint(sm) {
+    padding: padding(sm) 0;
+  }
+  @include breakpoint(lg) {
+    padding: padding(lg) 0;
+  }
+  /* @include breakpoint(xlg) {
+       padding: padding(xlg) 0;
+   }*/
+}
+
+@mixin defaultPadding(){
+  @include padding();
+}
+
+@mixin padding-bottom(){
+  padding-bottom: padding(xs);
+  @include breakpoint(sm) {
+    padding-bottom: padding(sm);
+  }
+  @include breakpoint(lg) {
+    padding-bottom: padding(lg);
+  }
+  @include breakpoint(xlg) {
+    padding-bottom: padding(xlg);
+  }
+}
+
+@mixin padding-top(){
+  padding-top: padding(xs);
+  @include breakpoint(sm) {
+    padding-top: padding(sm);
+  }
+  @include breakpoint(lg) {
+    padding-top: padding(lg);
+  }
+  @include breakpoint(xlg) {
+    padding-top: padding(xlg);
+  }
+}
+
+/* ===================
+	   Margin
+/* ===================*/
+
+@mixin margin-top(){
+  margin-top: padding(xs);
+  @include breakpoint(sm) {
+    margin-top: padding(sm);
+  }
+  @include breakpoint(lg) {
+    margin-top: padding(lg);
+  }
+  @include breakpoint(xlg) {
+    margin-top: padding(xlg);
+  }
+}
+
+@mixin margin-bottom(){
+  margin-bottom: padding(xs);
+  @include breakpoint(sm) {
+    margin-bottom: padding(sm);
+  }
+  @include breakpoint(lg) {
+    margin-bottom: padding(lg);
+  }
+  @include breakpoint(xlg) {
+    margin-bottom: padding(xlg);
+  }
+}
+
+@mixin margin-top-img(){
+  margin-top: rem(30);
+  @include breakpoint(sm) {
+    margin-top: rem(60);
+  }
+}

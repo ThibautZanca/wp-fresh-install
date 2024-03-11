@@ -1,0 +1,11 @@
+{% macro link(url, title, class, target = false, attribute = null )%}
+
+  <a href="{{ url }}"
+     class="{{ class }}"
+    {{ (target) ? 'target="_blank"' : '' }}
+    {{ (attribute) ? attribute : '' }}
+  >
+    {{ title }}
+  </a>
+
+{% endmacro %}

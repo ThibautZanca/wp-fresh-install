@@ -1,0 +1,12 @@
+<section class="flex-image-full">
+    <div class="flex-image-full__image">
+        {% include './tools/_img.html.twig' with {'obj': {
+            'class': 'img-full',
+            'media': fields.img,
+            'container': 'w-img',
+            'attribute': 'js-parallax',
+            'size' : '2048x2048'
+        }
+        } %}
+    </div>
+</section>

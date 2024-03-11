@@ -1,0 +1,7 @@
+.flex-image-full {
+    &__image {
+        .w-img{
+            @include img-homothetic(xs 50% sm 30%);
+        }
+    }
+}

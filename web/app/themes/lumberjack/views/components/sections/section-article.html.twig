@@ -1,0 +1,25 @@
+<div class="debug">
+    <span class="strong">views/partials/lister/articles.html.twig</span>
+
+    <div class="debug-list">
+        {% if articles %}
+            {% for article in articles %}
+
+                {% set image = article.get_field('list_image') %}
+
+                <div class="debug-list-item">
+                    <a href="{{ article.link }}">
+                        <span class="strong">objet article:</span>
+                        <strong>Image :</strong> {{ dump(article.get_field('list_image')) }} <br />
+                        <img src="{{ image.sizes.thumbnail }}" alt="" /><br />
+                        <strong>Titre :</strong>{{ article.title }} <i><br />
+                        <strong>Categorie :</strong>{{ article.category }}<br />
+
+                    </a>
+                </div>
+
+            {% endfor %}
+        {% endif %}
+    </div>
+
+</div>
